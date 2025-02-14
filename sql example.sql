@@ -60,7 +60,7 @@ select lower ('anjana')as lower;
 select reverse('anjana')as rev;
 select char_length('anjana')as len;
 select substr("hello hai",7,3)as str;
-select repeat('anjana',2)as caps;
+select repeat ('anjana',2)as caps;
 
 
 select abs(-123);
@@ -82,11 +82,25 @@ select *from railway;
 
 select count( `Date of Purchase`)from railway where `Date of Purchase`='2023-12-31';
 select dayname(`Date of Purchase`), count(`Transaction ID`) as ct from railway group by dayname(`Date of Purchase`)  having ct>300 order by ct desc;
+select monthname(`Date of Purchase`), count(`Transaction ID`) as ct from railway group by monthname(`Date of Purchase`)  having ct>300 order by ct desc;
 select dayname(`Date of purchase`),count(`Transaction ID`)as ct from railway group by dayname(`date of purchase`) order by ct desc;
-select monthname(`date of purchase`),count(`Transaction ID`) from railway group by monthname(`date of purchase`) order by count(`Transaction ID`) desc;
-select 
+select dayname(`date of purchase`),count(`Transaction ID`) from railway group by dayname(`date of purchase`)having 
+count(`transaction id`)>300 order by count(`Transaction ID`) desc;
+select monthname(`date of purchase`),count(`Transaction ID`) from railway group by monthname(`date of purchase`)having 
+count(`transaction id`)>300 order by count(`Transaction ID`) desc;
 
 
+
+select * from calories;
+describe calories;
+
+select count(`gender`)from calories where calories>100;
+select count(`gender`)from calories group by calories order by max(`calories`)  desc;
+select avg(`calories`) from calories group by gender;
+select count(`User_ID`) from calories where age>50;
+select max(`height`)height,gender from calories group by gender;
+
+alter table  calories rename column Body_Temp to Body_Temperature;
 
 
 
