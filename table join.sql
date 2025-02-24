@@ -17,6 +17,8 @@ insert into orders values(
 (105,	5,	"2025-02-12"	,180.75);
 insert into orders values(105,	6,	"2025-02-16"	,190.75);
 select * from orders;
+use akshay;
+
 
 select * from customers join orders  on customers.customer_id=orders.Customer_ID;
 select * from customers inner join orders  on customers.customer_id=orders.Customer_ID;
@@ -42,3 +44,15 @@ select * from `country-code` right join zomato  on `country-code`.`Country Code`
 select * from `country-code` left join zomato  on `country-code`.`Country Code`=zomato.`Country Code`
 union all
 select * from `country-code` right join zomato  on `country-code`.`Country Code`=zomato.`Country Code`;
+select * from zomato;
+select * from  `country-code`;
+select zomato.`country code`, country,city, cuisines,`restaurant ID` from zomato join `country-code` on `country-code`.`Country Code`=zomato.`Country Code` where cuisines like '%Brazilian%' or cuisines like '%Indian%';
+select country,count(`restaurant ID`) from zomato join `country-code` on `country-code`.`Country Code`=zomato.`Country Code` group by country limit 1 offset 1 ;
+
+insert into `country-code` values (85,"chinna");
+
+update `country-code` set `country code`=86 where country="chinna";
+set sql_safe_updates=0;
+update `country-code` set country="china" where `country code`=86;
+
+
