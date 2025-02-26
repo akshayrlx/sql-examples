@@ -55,4 +55,40 @@ update `country-code` set `country code`=86 where country="chinna";
 set sql_safe_updates=0;
 update `country-code` set country="china" where `country code`=86;
 
+select * from rolex;
+
+update `rolex` set `date`="02-03-2025" where price=7999;
+insert into `rolex` values(26,"01-03-2025",'rolex new',29999,"https://www.rolex new.com");
+
+delete from `rolex` where `price`=7999;
+
+select * from basi;
+drop table basi;
+
+select * from sports;
+delete from sports;
+select * from customers;
+/*alter table rolex rename column  MyUnknownColumn to `index`;*/
+ALTER TABLE customers
+ADD column city varchar(25);
+update CUSTOMERS SET CITY= case 
+when customer_id=1 then 'new york' 
+when customer_id=2 then 'ottawa'
+when customer_id=3 then 'london'
+when customer_id=4 then 'berlin'
+else 'new jersey'                           #when customer_=5 then 'new jersy'
+end;
+alter table customers modify column city char(15);
+alter table customers modify column city varchar(30);
+describe customers;
+
+alter table customers drop column population;
+alter table customers add column numbers int;
+
+
+
+
+
+
+
 
