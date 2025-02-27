@@ -55,4 +55,26 @@ select rand()*11;
 select floor(rand()*11);
 select floor(rand()*60+20);
 select floor(rand()*60+60);
+joins
+delete = delete entire table
+truncate = delete table values
+drop  = delete table values
+update = alter table- add column,drop column, rename,modify, add constraint
+safe update mode=  ON set sql_safe_updates=0; ,OFF set sql_safe_updates=1;
+
+SQL CASE Examples
+The following SQL goes through conditions and returns a value when the first condition is met:
+
+case 
+when price >15000 then 'the price is greater than 15000'
+when price <15000 then 'the price is lesser than 15000'
+end as pricetext
+from rolex;
+
+The following SQL will order the customers by City. However, if City is NULL, then order by Country:
+
+select country, city ,numbers from customers 
+order by (case when numbers is null then city else numbers end);
+
+
 */

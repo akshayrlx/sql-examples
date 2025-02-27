@@ -102,6 +102,20 @@ select max(`height`)height,gender from calories group by gender;
 
 alter table  calories rename column Body_Temp to Body_Temperature;
 
+use akshay;
+select * from rolex;
+alter table rolex rename column  MyUnknownColumn to `index`;
+
+select distinct `name` from rolex limit 5 offset 2;
+
+select * from calories;
+select count(`gender`)from calories group by calories order by max(`calories`)  desc limit 5 offset 2;
+
+
+
+
+
+
 
 
 

@@ -85,6 +85,23 @@ describe customers;
 alter table customers drop column population;
 alter table customers add column numbers int;
 
+select * from rolex;
+select `INDEX`,price,
+case 
+when price >15000 then 'the price is greater than 15000'
+when price <15000 then 'the price is lesser than 15000'
+end as pricetext
+from rolex;
+
+select country, city ,numbers from customers 
+order by (case when numbers is null then city else numbers end);
+############################
+select * from customers join orders  on customers.customer_id=orders.Customer_ID;
+select * from orders;
+select * from customers;
+select  c.country, count(o.customer_id) as countc from customers c left join orders o  on c.customer_id=o.Customer_ID group by c.country order by countc;
+select  c.country, count(o.customer_id) as countc from customers c left join orders o  on c.customer_id=o.Customer_ID group by c.country having countc=1;
+select customer_name from customers where customer_id in (select customer_ID from orders where Total_Amount>200);
 
 
 
