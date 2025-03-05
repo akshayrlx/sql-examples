@@ -68,4 +68,55 @@ insert into student_score values ('akash',50,10,0);
 
 select * from student_score;
 
+use akshay;
+create table student_details(student_name varchar(30),mark int ,internal_mark int,total int,percentage int);
+create trigger student_details
+before insert 
+on student_details
+for each row
+set new.total=new.mark+new.internal_mark,
+new.percentage=(new.total/100)*100;
+insert into student_details values ('akshay',70,15,0,0);
 
+select * from student_details;
+use sakila;
+#create view as film_view on film(film_id,title,release_year,rental_rate,replacement_cost,rating,last_update);
+create view film_view as select film_id,title,release_year,rental_rate,replacement_cost,rating,last_update from film where replacement_cost>=10;
+select count(film_id) from film_view where rating="PG";
+select * from film_view where rating="PG";
+
+use akshay;
+create view railway_view as select `transaction id`,`purchase type`,`ticket class`,`ticket type`,price from railway where price >50;
+drop view railway_view;
+select* from railway_view;
+select count(`transaction id`) from railway_view where `ticket class`='standard';
+select avg(price) from railway_view;
+select count(`transaction id`)total ,`purchase type` from railway_view group by `purchase type`;
+
+
+create view calories_view as select User_ID,Gender,Height,Weight,Calories from calories;
+select* from calories_view;
+
+create table student_score(student_name varchar(30),mark int ,internal_mark int,total int);
+
+
+insert into student_score values ('basi',70,10,0);
+select* from student_score;
+drop trigger student_score;
+
+update student_score set total=mark+internal_mark;
+
+
+create trigger student_score 
+after insert 
+on student_score
+for each row
+set total=mark+internal_mark;
+
+select* from orders;
+
+create trigger orders_trigger
+after insert 
+on orders
+for each row 
+set percentage=(total_amount/100)*100;
