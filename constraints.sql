@@ -114,9 +114,24 @@ for each row
 set total=mark+internal_mark;
 
 select* from orders;
+alter table orders add column percentage int;
+
+ALTER TABLE orders DROP COLUMN percentage;
 
 create trigger orders_trigger
 after insert 
-on orders
+ on orders
 for each row 
-set percentage=(total_amount/100)*100;
+set percentage=((total_amount/100)*100);
+
+
+use akshay;
+insert into student_details(student_name) select student_name from student_score;
+select * from student_details;
+
+create index ticket on railway(`Transaction ID`(255),`Date of Purchase`(255),`Time of Purchase`(255));
+describe railway;
+
+
+
+
